@@ -1,0 +1,115 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateAuthInput {
+  """"""
+  email: String!
+
+  """"""
+  name: String!
+
+  """"""
+  password: String!
+}
+
+input CreateProductInput {
+  """"""
+  product_name: String!
+
+  """"""
+  sale_price: Int!
+}
+
+input CreateUserInput {
+  """"""
+  email: String!
+
+  """"""
+  name: String!
+
+  """"""
+  password: String!
+}
+
+input LoginInput {
+  """"""
+  email: String!
+
+  """"""
+  password: String!
+}
+
+type LoginResponse {
+  access_token: String!
+  refresh_token: String!
+  user: User!
+}
+
+type Mutation {
+  createAuth(signup: CreateAuthInput!): RegistrationResponse!
+  createProduct(createProductInput: CreateProductInput!): Product!
+  createUser(createUserInput: CreateUserInput!): User!
+  login(signin: LoginInput!): LoginResponse!
+  removeProduct(id: Int!): Product!
+  removeUser(id: Int!): User!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+  updateUser(updateUserInput: UpdateUserInput!): User!
+}
+
+type Product {
+  """"""
+  product_name: String!
+
+  """"""
+  sale_price: Int!
+}
+
+type Query {
+  product(id: Int!): Product!
+  products: [Product!]!
+  user(id: Int!): User!
+}
+
+type RegistrationResponse {
+  access_token: String!
+  refresh_token: String!
+  user: User!
+}
+
+input UpdateProductInput {
+  id: Int!
+
+  """"""
+  product_name: String
+
+  """"""
+  sale_price: Int
+}
+
+input UpdateUserInput {
+  """"""
+  email: String
+  id: Int!
+
+  """"""
+  name: String
+
+  """"""
+  password: String
+  refresh_token: Int!
+}
+
+type User {
+  """"""
+  email: String!
+
+  """"""
+  name: String!
+
+  """"""
+  password: String!
+
+  """"""
+  refresh_token: String
+}
