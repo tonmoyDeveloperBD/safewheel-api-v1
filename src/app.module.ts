@@ -11,6 +11,9 @@ import { UserModule } from './user/user.module';
 import { PrismaService } from "./prisma/prisma.service";
 import { AuthModule } from './auth/auth.module';
 import { ProductModule } from './product/product.module';
+import {APP_GUARD } from "@nestjs/core";
+import { AccessTokenGuard } from "./auth/guard/accesstoken.guard";
+import { JwtModule } from "@nestjs/jwt";
 
 @Module({
   imports: [ConfigModule.forRoot({
@@ -30,6 +33,6 @@ import { ProductModule } from './product/product.module';
     ProductModule,
   ],
   controllers: [AppController],
-  providers: [AppService,ConfigService,PrismaService],
+  providers: [AppService,ConfigService,PrismaService,{provide: APP_GUARD, useClass: AccessTokenGuard}],
 })
 export class AppModule {}

@@ -5,7 +5,8 @@ export default registerAs('app', () => ({
   version: process.env.APP_VERSION || '1.0.0',
   port: process.env.PORT || 4000,
   JWT_ACCESS_TOKEN_SECRET : 'qwertyuiop',
-  JWT_REFRESH_TOKEN_SECRET : 'asdfghjkl',
+  JWT_REFRESH_TOKEN_SECRET : 'qwertyuiop',
+  JWT_SECRET : 'qwertyuiop',
 
   /*
   |--------------------------------------------------------------------------

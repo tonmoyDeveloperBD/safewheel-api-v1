@@ -5,10 +5,10 @@ import { PrismaService } from "../prisma/prisma.service";
 import { JwtModule } from "@nestjs/jwt";
 
 @Module({
-  /*imports: [JwtModule.register({
-    secret: "abcd",
-    signOptions: {expiresIn: '60s'}
-  })],*/
+  imports: [JwtModule.register({
+    secret: "qwertyuiop",
+    signOptions: {expiresIn: '1h'}
+  })],
   providers: [ProductResolver, ProductService,PrismaService]
 })
 export class ProductModule {}
