@@ -15,6 +15,12 @@ input CreateAuthInput {
 
 input CreateProductInput {
   """"""
+  image: String!
+
+  """"""
+  product_id: String!
+
+  """"""
   product_name: String!
 
   """"""
@@ -59,6 +65,12 @@ type Mutation {
 
 type Product {
   """"""
+  image: String!
+
+  """"""
+  product_id: String!
+
+  """"""
   product_name: String!
 
   """"""
@@ -79,6 +91,12 @@ type RegistrationResponse {
 
 input UpdateProductInput {
   id: Int!
+
+  """"""
+  image: String
+
+  """"""
+  product_id: String
 
   """"""
   product_name: String

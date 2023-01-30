@@ -21,7 +21,11 @@ model User{
 }
 
 model Product {
-    id Int @id @default(autoincrement())
-    product_name String
-    sale_price Int
+ id Int @id @default(autoincrement())
+ product_id String
+ product_name String
+ sale_price Int
+ image String
+ createdAt DateTime @default(now())
+ updatedAt DateTime @default(now())
 }

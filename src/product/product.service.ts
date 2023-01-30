@@ -10,7 +10,14 @@ export class ProductService {
   }
 
   create(createProductInput: CreateProductInput) {
-    return 'This action adds a new product';
+    return this.prismaService.product.create({
+      data: {
+        product_id: createProductInput.product_id,
+        product_name: createProductInput.product_name,
+        sale_price: createProductInput.sale_price,
+        image: createProductInput.image
+      },
+    });
   }
 
   findAll() {
@@ -18,14 +25,24 @@ export class ProductService {
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} product`;
+    return this.prismaService.product.findFirst({where:{id},select:{
+        product_id: true,
+        product_name: true,
+        sale_price: true,
+        image: true
+      }});
   }
 
   update(id: number, updateProductInput: UpdateProductInput) {
-    return `This action updates a #${id} product`;
+    return this.prismaService.product.update({
+      data: updateProductInput,
+      where:{id}
+    });
   }
 
   remove(id: number) {
-    return `This action removes a #${id} product`;
+    return this.prismaService.product.delete({
+      where: {id}
+    });
   }
 }
